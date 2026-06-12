@@ -1,0 +1,48 @@
+/* ===========================================================================
+   Sushil Harsana — Portfolio (Next.js)
+   Design tokens are imported in the SAME order as the original design system
+   (colors → typography → spacing → effects → base) so effects' radii win.
+   Fonts are handled by next/font (see layout.js); we only remap the family
+   variables onto the self-hosted font CSS variables below.
+   =========================================================================== */
+
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/effects.css";
+@import "./tokens/base.css";
+
+/* Remap the design-system font families onto next/font's self-hosted vars.
+   These are defined on <html> by layout.js. */
+:root {
+  --font-display: var(--font-instrument), "Times New Roman", serif;
+  --font-grotesk: var(--font-grotesk-var), system-ui, sans-serif;
+  --font-body: var(--font-grotesk-var), system-ui, sans-serif;
+  --font-mono: var(--font-mono-var), ui-monospace, monospace;
+  --font-script: var(--font-script-var), cursive;
+}
+
+html,
+body {
+  background: #000;
+}
+
+/* Responsive collapses (ported from the original prototype) */
+@media (max-width: 880px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .skill-row {
+    grid-template-columns: 1fr !important;
+  }
+  .nav-center {
+    display: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-cv {
+    display: none !important;
+  }
+}

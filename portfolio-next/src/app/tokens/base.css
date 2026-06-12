@@ -1,0 +1,49 @@
+/* ===========================================================================
+   BASE — pure-black canvas. Flat. No mesh. The editorial/terminal stage.
+   =========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+  background-color: var(--bg-void);   /* flat true black */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings default to bold grotesk; the editorial serif is opt-in per element
+   via font-family: var(--font-display) so big moments feel intentional. */
+h1, h2, h3, h4 {
+  font-family: var(--font-grotesk);
+  color: var(--fg-1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-bold);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; margin: 0; }
+
+a { color: var(--green); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+a:hover { color: var(--green-bright); }
+
+code, kbd, samp { font-family: var(--font-mono); }
+
+::selection { background: rgba(31,224,162,0.30); color: #fff; }
+
+/* Scrollbar — terminal-thin, green thumb */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb {
+  background: var(--green-deep);
+  border-radius: var(--radius-pill);
+  border: 2px solid #000;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--green); }

@@ -1,0 +1,112 @@
+/* ===========================================================================
+   EFFECTS — Terminal/editorial neo-brutalism.
+   Flat black surfaces, crisp borders, corner brackets, ✦ sparkles, a gliding
+   marquee, subtle accent glows. NO frosted glass, NO mesh gradient.
+   =========================================================================== */
+
+:root {
+  /* ---- Radii — tight & deliberate (brutalist, not pill-soft) ------------- */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   22px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows: depth + the brutalist HARD offset ------------------------ */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.6);
+  --shadow-md:  0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg:  0 24px 60px rgba(0,0,0,0.6);
+  /* hard offset block shadow — the neo-brutal signature (green / white edge) */
+  --shadow-brutal-green: 4px 4px 0 0 var(--green);
+  --shadow-brutal-white: 4px 4px 0 0 rgba(255,255,255,0.9);
+  --shadow-brutal-mag:   4px 4px 0 0 var(--magenta);
+
+  /* ---- Accent glows (subtle — reference uses these on focus/active) ------ */
+  --glow-green:   0 0 0 1px rgba(31,224,162,0.40), 0 0 26px rgba(31,224,162,0.28);
+  --glow-magenta: 0 0 0 1px rgba(210,76,240,0.40), 0 0 30px rgba(210,76,240,0.30);
+  --glow-soft-green: 0 0 48px rgba(31,224,162,0.18);
+  --focus-ring:   0 0 0 2px rgba(31,224,162,0.55);
+
+  /* ---- Grain ------------------------------------------------------------- */
+  --noise-opacity: 0.05;   /* @kind other */
+
+  /* ---- Motion ------------------------------------------------------------ */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);     /* @kind other */
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);    /* @kind other */
+  --ease-snappy:   cubic-bezier(0.2, 0.9, 0.1, 1);    /* @kind other */
+  --dur-fast:   120ms;   /* @kind other */
+  --dur-base:   240ms;   /* @kind other */
+  --dur-slow:   440ms;   /* @kind other */
+  --dur-reveal: 720ms;   /* @kind other */
+  --marquee-dur: 38s;    /* @kind other */
+
+  /* ---- Semantic aliases -------------------------------------------------- */
+  --surface-card:   var(--bg-surface);
+  --surface-raised: var(--bg-surface-2);
+  --surface-nav:    rgba(5,5,6,0.72);
+  --text-heading:   var(--fg-1);
+  --text-body-color:var(--fg-2);
+  --text-muted:     var(--fg-3);
+}
+
+/* ======================= REUSABLE UTILITY PRIMITIVES ======================= */
+
+/* Flat panel — the core surface (replaces glassmorphism) */
+.nb-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Corner-bracket frame — the targeting/crosshair motif for active nav & focus.
+   Put .nb-brackets on a positioned element; brackets draw at its 4 corners. */
+.nb-brackets { position: relative; }
+.nb-brackets::before,
+.nb-brackets::after {
+  content: ""; position: absolute; width: 9px; height: 9px;
+  border: 1.5px solid var(--green); pointer-events: none;
+}
+.nb-brackets::before { top: -3px; left: -3px; border-right: 0; border-bottom: 0; }
+.nb-brackets::after  { bottom: -3px; right: -3px; border-left: 0; border-top: 0; }
+
+/* Mono eyebrow / section label */
+.nb-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Editorial gradient/italic emphasis word */
+.nb-italic { font-family: var(--font-display); font-style: italic; color: var(--fg-1); }
+.nb-accent { color: var(--green); }
+
+/* Film grain overlay — drop a full-viewport fixed element with this class */
+.nb-grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 800;
+  opacity: var(--noise-opacity); mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Marquee track — children laid in a row glide left forever. Duplicate the
+   content twice inside for a seamless loop. */
+@keyframes nb-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.nb-marquee-track {
+  display: flex; width: max-content;
+  animation: nb-marquee var(--marquee-dur) linear infinite;
+}
+.nb-marquee-track:hover { animation-play-state: paused; }
+
+/* 4-point sparkle (decorative). Size via font-size / width. */
+@keyframes nb-twinkle { 0%,100% { opacity: .35; transform: scale(.8) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

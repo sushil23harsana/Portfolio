@@ -1,0 +1,63 @@
+/* ===========================================================================
+   COLORS — Full black canvas · emerald accent · magenta + electric-blue support
+   Terminal/editorial neo-brutalism. Flat black, no mesh, no glassmorphism.
+   =========================================================================== */
+
+:root {
+  /* ---- Canvas / surfaces (pure black up through near-black panels) -------- */
+  --bg-void:      #000000;   /* the page — flat, true black                  */
+  --bg-base:      #050506;   /* base sections                                */
+  --bg-surface:   #0B0B0D;   /* cards / panels                               */
+  --bg-surface-2: #131316;   /* raised chips, inputs, hover                  */
+  --bg-surface-3: #1B1B20;   /* highest raise                                */
+
+  /* ---- Foreground / text ------------------------------------------------- */
+  --fg-1: #F4F4F5;   /* primary headings / high-emphasis           */
+  --fg-2: #A6A6AE;   /* body copy                                  */
+  --fg-3: #6C6C76;   /* secondary / captions / mono labels         */
+  --fg-4: #45454E;   /* muted / metadata / perforation             */
+  --fg-disabled: #2C2C33;
+
+  /* ---- Primary accent: emerald / spring green ---------------------------- */
+  --green:        #1FE0A2;   /* the signature accent                       */
+  --green-bright: #5BFFC9;   /* hover / glow highlight                      */
+  --green-deep:   #0E8A63;   /* pressed / dim                              */
+  --green-ink:    #021A12;   /* text on a green fill                        */
+
+  /* ---- Secondary accent: magenta (dates, one-off highlights) ------------- */
+  --magenta:      #D24CF0;
+  --magenta-soft: #E89BFB;
+  --magenta-deep: #7A1E92;
+
+  /* ---- Tertiary: electric blue (occasional tech marks / links) ----------- */
+  --blue:         #4D7CFE;
+  --blue-soft:    #8FA8FF;
+
+  /* ---- Semantic ---------------------------------------------------------- */
+  --success: #1FE0A2;
+  --warning: #FFC75A;
+  --danger:  #FF6B81;
+  --info:    #4D7CFE;
+
+  /* ---- Borders (hairline → bold; the neo-brutal edge) -------------------- */
+  --border-hairline: rgba(255,255,255,0.09);
+  --border-soft:     rgba(255,255,255,0.14);
+  --border-strong:   rgba(255,255,255,0.22);
+  --border-bold:     rgba(255,255,255,0.40);   /* brutalist heavy outline    */
+  --border-green:    rgba(31,224,162,0.45);
+  --border-magenta:  rgba(210,76,240,0.45);
+
+  /* ---- Accent surfaces (translucent fills for chips/states) -------------- */
+  --green-08:    rgba(31,224,162,0.08);
+  --green-14:    rgba(31,224,162,0.14);
+  --magenta-10:  rgba(210,76,240,0.10);
+  --magenta-16:  rgba(210,76,240,0.16);
+  --blue-12:     rgba(77,124,254,0.12);
+
+  /* ---- Restrained gradients (used sparingly, NOT as page background) ----- */
+  --gradient-green:   linear-gradient(120deg, #5BFFC9 0%, #1FE0A2 100%);   /* @kind color */
+  --gradient-magenta: linear-gradient(120deg, #E89BFB 0%, #D24CF0 100%);   /* @kind color */
+  /* faint top-center glow behind the nav (apply to a positioned element) */
+  --bg-glow-green:  radial-gradient(60% 120% at 50% 0%, rgba(31,224,162,0.10) 0%, transparent 60%);
+  --bg-glow-corner: radial-gradient(50% 60% at 100% 0%, rgba(210,76,240,0.06) 0%, transparent 60%);
+}
