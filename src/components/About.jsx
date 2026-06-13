@@ -27,22 +27,17 @@ export function About() {
           <div style={{ marginTop: "40px" }}>
             <Reveal delay={0.05}>
               <TimelineItem company="Altrd AI" role="Software Developer" period="Apr 2026 – Present" current>
-                Building AI-native SaaS products end-to-end with Python &amp; Next.js — an AI billing-reconciliation platform with automated discrepancy detection, and a real-estate lead-intelligence platform with lead scoring and an AI voice agent.
+                Shipped an AI billing-reconciliation SaaS that collapsed days of manual, line-by-line auditing into near-instant, explainable reconciliation — plus a real-estate lead-intelligence platform with lead scoring and an AI voice agent for automated outreach. Python &amp; Next.js, owning both product and AI infrastructure.
               </TimelineItem>
             </Reveal>
             <Reveal delay={0.1}>
               <TimelineItem company="Seller Setu" role="Software Engineer" period="Oct 2025 – Mar 2026">
-                Built and optimized Golang backend services and RESTful APIs — sharper request validation, error handling and response consistency — deployed and managed on AWS.
+                Re-architected the core API gateway from Django to Golang — cutting p99 latency and unlocking concurrent request handling that kept the seller platform stable at peak — with rate limiting and RabbitMQ across distributed services on AWS.
               </TimelineItem>
             </Reveal>
             <Reveal delay={0.15}>
-              <TimelineItem company="Resollect" role="Software Engineer · SDE-1" period="Jun 2025 – Sep 2025">
-                Architected core backend modules for a lawyer-operations platform using Django &amp; Celery, with asynchronous task processing for background jobs and third-party integrations.
-              </TimelineItem>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <TimelineItem company="Seller Setu" role="Software Engineer · Intern" period="Mar 2025 – May 2025" last>
-                Migrated the core API gateway from Django to Golang and added rate limiting with RabbitMQ messaging — cutting latency and unlocking concurrent request handling under high-traffic load.
+              <TimelineItem company="Resollect" role="Software Engineer · SDE-1" period="Jun 2025 – Sep 2025" last>
+                Built a lawyer-operations platform whose case data sat behind a confidential server we couldn't reach directly — designed a webhook ingestion pipeline to securely pull it in, unblocking the integration the product depended on. Async processing with Django &amp; Celery.
               </TimelineItem>
             </Reveal>
           </div>
