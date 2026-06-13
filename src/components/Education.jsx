@@ -5,7 +5,7 @@ import { Section } from "./Section";
 
 const items = [
   { d: "B.Tech — Computer Science", s: "Graphic Era University, Dehradun · GPA 7.6 / 10", y: "2021 – 2025" },
-  { d: "Tata Crucible Campus Quiz", s: "Cluster Level Finalist among thousands of participants", y: "2024" },
+  { d: "Tata Crucible Campus Quiz", s: "Cluster Finalist · India's largest business quiz — 1.2 lakh+ student participants nationwide", y: "2024" },
   { d: "Tech Team Lead — Designovation Hub", s: "Led tech ops & organized hackathons for 300+ students", y: "2023 – 2024" },
 ];
 
